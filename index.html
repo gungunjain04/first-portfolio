@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio | Ultra-Minimalist</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        neutral: {
+                            850: '#141414',
+                            950: '#0a0a0a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Custom subtle scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(150, 150, 150, 0.3);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(150, 150, 150, 0.5);
+        }
+
+        /* Scroll reveal animation styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Focus outline resetting for sleek aesthetic */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 min-h-screen flex flex-col justify-between selection:bg-neutral-900 selection:text-white dark:selection:bg-neutral-100 dark:selection:text-black">
+
+    <!-- Header Navigation -->
+    <header
+        class="sticky top-0 z-40 w-full backdrop-blur-md bg-neutral-50/80 dark:bg-neutral-950/80 border-b border-neutral-200/60 dark:border-neutral-800/60 transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="font-mono font-medium text-sm tracking-tight hover:opacity-70 transition-opacity">
+                alex.dev<span class="text-neutral-400">()</span>
+            </a>
+
+            <!-- Navigation Links & Actions -->
+            <div class="flex items-center space-x-6 text-sm">
+                <nav class="hidden sm:flex items-center space-x-6 text-neutral-600 dark:text-neutral-400 font-medium">
+                    <a href="#about"
+                        class="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">About</a>
+                    <a href="#projects"
+                        class="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">Projects</a>
+                    <a href="#skills"
+                        class="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">Skills</a>
+                    <a href="#contact"
+                        class="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">Contact</a>
+                </nav>
+
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" aria-label="Toggle Theme"
+                    class="p-2 rounded-full border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50 transition-colors">
+                    <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                    <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 w-full flex-grow">
+
+        <!-- Hero Section -->
+        <section class="py-24 sm:py-32 flex flex-col items-start justify-center reveal">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 mb-6 border border-neutral-300/50 dark:border-neutral-800">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Available for internships & projects
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl font-bold tracking-tight mb-6 leading-[1.15]">
+                Computer Science Student <br class="hidden sm:inline" />
+                & Full-Stack Developer.
+            </h1>
+
+            <p
+                class="text-lg sm:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl font-normal leading-relaxed mb-10">
+                Building efficient software systems, exploring machine learning models, and crafting minimalist digital
+                experiences with Python, Linux, and Web technologies.
+            </p>
+
+            <div class="flex flex-wrap gap-4 text-sm font-medium">
+                <a href="#projects"
+                    class="px-6 py-3 rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors flex items-center gap-2">
+                    View Projects <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#contact"
+                    class="px-6 py-3 rounded-lg border border-neutral-300 dark:border-neutral-800 hover:bg-neutral-200/50 dark:hover:bg-neutral-900 transition-colors">
+                    Get in touch
+                </a>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <hr class="border-neutral-200 dark:border-neutral-900 my-4" />
+
+        <!-- About Section -->
+        <section id="about" class="py-20 reveal">
+            <h2 class="font-mono text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-500 mb-8">01 /
+                ABOUT ME</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2 space-y-4 text-neutral-700 dark:text-neutral-300 leading-relaxed text-base">
+                    <p>
+                        I'm Alex, a Computer Science senior passionate about building robust backend infrastructure,
+                        intelligent web tools, and sleek interfaces. My core focus centers on artificial intelligence
+                        applications and Linux-based system development.
+                    </p>
+                    <p>
+                        Currently leading tech efforts in our university **Dev Club**, mentoring junior developers, and
+                        building early-stage startups like **OilBank** to optimize local energy logistics.
+                    </p>
+                </div>
+
+                <!-- Quick Bio Stats -->
+                <div
+                    class="p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100/50 dark:bg-neutral-900/30 space-y-3 font-mono text-xs">
+                    <div>
+                        <span class="text-neutral-400 block">EDUCATION</span>
+                        <span class="font-semibold text-neutral-800 dark:text-neutral-200">B.S. Computer Science</span>
+                    </div>
+                    <div>
+                        <span class="text-neutral-400 block">FOCUS AREAS</span>
+                        <span class="font-semibold text-neutral-800 dark:text-neutral-200">AI/ML, Systems, Web
+                            Arch</span>
+                    </div>
+                    <div>
+                        <span class="text-neutral-400 block">LOCATION</span>
+                        <span class="font-semibold text-neutral-800 dark:text-neutral-200">San Francisco, CA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <hr class="border-neutral-200 dark:border-neutral-900 my-4" />
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 reveal">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <h2 class="font-mono text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-500 mb-2">
+                        02 / FEATURED WORK</h2>
+                    <h3 class="text-2xl font-bold tracking-tight">Selected Projects</h3>
+                </div>
+
+                <!-- Interactive Filter Tags -->
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <button
+                        class="filter-btn active px-3 py-1.5 rounded-md border border-neutral-900 bg-neutral-900 text-white dark:border-neutral-100 dark:bg-neutral-100 dark:text-neutral-900 transition-colors"
+                        data-filter="all">All</button>
+                    <button
+                        class="filter-btn px-3 py-1.5 rounded-md border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
+                        data-filter="ai">AI / Web</button>
+                    <button
+                        class="filter-btn px-3 py-1.5 rounded-md border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
+                        data-filter="systems">Systems / Linux</button>
+                    <button
+                        class="filter-btn px-3 py-1.5 rounded-md border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors"
+                        data-filter="startup">Startup</button>
+                </div>
+            </div>
+
+            <!-- Projects Grid / List View -->
+            <div id="projects-container" class="space-y-6">
+
+                <!-- Project Card 1 -->
+                <article
+                    class="project-card group border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-all cursor-pointer bg-white/40 dark:bg-neutral-900/20"
+                    data-category="ai" onclick="openProjectModal(0)">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 mb-3">
+                        <h4 class="text-xl font-semibold group-hover:underline flex items-center gap-2">
+                            ResumeLens AI
+                            <i data-lucide="arrow-up-right"
+                                class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </h4>
+                        <div class="flex gap-2 font-mono text-xs text-neutral-500">
+                            <span>Python</span> • <span>FastAPI</span> • <span>NLP</span>
+                        </div>
+                    </div>
+                    <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-4">
+                        An intelligent resume analyzer leveraging NLP and LLM embeddings to evaluate ATS readability,
+                        suggest skill enhancements, and score candidate-to-job descriptions alignment in real time.
+                    </p>
+                    <div class="flex items-center gap-4 text-xs font-mono text-neutral-500">
+                        <span class="inline-flex items-center gap-1"><i data-lucide="star" class="w-3.5 h-3.5"></i> 140+
+                            Stars</span>
+                        <span class="inline-flex items-center gap-1"><i data-lucide="git-fork" class="w-3.5 h-3.5"></i>
+                            32 Forks</span>
+                    </div>
+                </article>
+
+                <!-- Project Card 2 -->
+                <article
+                    class="project-card group border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-all cursor-pointer bg-white/40 dark:bg-neutral-900/20"
+                    data-category="startup" onclick="openProjectModal(1)">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 mb-3">
+                        <h4 class="text-xl font-semibold group-hover:underline flex items-center gap-2">
+                            OilBank Platform
+                            <i data-lucide="arrow-up-right"
+                                class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </h4>
+                        <div class="flex gap-2 font-mono text-xs text-neutral-500">
+                            <span>React</span> • <span>Node.js</span> • <span>PostgreSQL</span>
+                        </div>
+                    </div>
+                    <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-4">
+                        Startup initiative creating a transparent digital tracking and exchange network for recycled
+                        industrial oils. Streamlines supply logistics and reduces environmental footprint.
+                    </p>
+                    <div class="flex items-center gap-4 text-xs font-mono text-neutral-500">
+                        <span class="inline-flex items-center gap-1"><i data-lucide="shield-check"
+                                class="w-3.5 h-3.5"></i> Active Beta</span>
+                    </div>
+                </article>
+
+                <!-- Project Card 3 -->
+                <article
+                    class="project-card group border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-all cursor-pointer bg-white/40 dark:bg-neutral-900/20"
+                    data-category="systems" onclick="openProjectModal(2)">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 mb-3">
+                        <h4 class="text-xl font-semibold group-hover:underline flex items-center gap-2">
+                            Dev Club CLI Suite & Linux Tools
+                            <i data-lucide="arrow-up-right"
+                                class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </h4>
+                        <div class="flex gap-2 font-mono text-xs text-neutral-500">
+                            <span>Rust</span> • <span>Bash</span> • <span>Linux</span>
+                        </div>
+                    </div>
+                    <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-4">
+                        A lightweight suite of command-line tools built for university developers to automate local
+                        environment setup, manage git hooks, and streamline sprint submissions.
+                    </p>
+                    <div class="flex items-center gap-4 text-xs font-mono text-neutral-500">
+                        <span class="inline-flex items-center gap-1"><i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+                            CLI Tool</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <hr class="border-neutral-200 dark:border-neutral-900 my-4" />
+
+        <!-- Skills & Stack Section -->
+        <section id="skills" class="py-20 reveal">
+            <h2 class="font-mono text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-500 mb-8">03 /
+                SKILLS & TECH STACK</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+                <!-- Skill Group 1 -->
+                <div class="space-y-4">
+                    <h3
+                        class="font-mono text-sm font-semibold border-b border-neutral-200 dark:border-neutral-800 pb-2 flex items-center gap-2">
+                        <i data-lucide="code" class="w-4 h-4 text-neutral-500"></i> Languages
+                    </h3>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono">
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">Python</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">TypeScript</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">C
+                            / C++</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">SQL</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">Bash</span>
+                    </div>
+                </div>
+
+                <!-- Skill Group 2 -->
+                <div class="space-y-4">
+                    <h3
+                        class="font-mono text-sm font-semibold border-b border-neutral-200 dark:border-neutral-800 pb-2 flex items-center gap-2">
+                        <i data-lucide="layers" class="w-4 h-4 text-neutral-500"></i> Frameworks & Libs
+                    </h3>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono">
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">PyTorch</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">FastAPI</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">React</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">Next.js</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">Tailwind
+                            CSS</span>
+                    </div>
+                </div>
+
+                <!-- Skill Group 3 -->
+                <div class="space-y-4">
+                    <h3
+                        class="font-mono text-sm font-semibold border-b border-neutral-200 dark:border-neutral-800 pb-2 flex items-center gap-2">
+                        <i data-lucide="cpu" class="w-4 h-4 text-neutral-500"></i> Tools & Environments
+                    </h3>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono">
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">Linux
+                            / Unix</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">Git
+                            / GitHub</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">Docker</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">PostgreSQL</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-neutral-200/60 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">Vercel</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <hr class="border-neutral-200 dark:border-neutral-900 my-4" />
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 reveal">
+            <h2 class="font-mono text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-500 mb-8">04 / GET
+                IN TOUCH</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold tracking-tight mb-4">Let's build something together.</h3>
+                    <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-6">
+                        Whether you have a question, project proposal, or just want to chat about AI or Linux tools—feel
+                        free to drop a message!
+                    </p>
+
+                    <div class="space-y-3 text-sm font-mono">
+                        <a href="mailto:alex.dev@example.com"
+                            class="flex items-center gap-3 text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors">
+                            <i data-lucide="mail" class="w-4 h-4"></i> alex.dev@example.com
+                        </a>
+                        <a href="https://github.com" target="_blank" rel="noopener"
+                            class="flex items-center gap-3 text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors">
+                            <i data-lucide="github" class="w-4 h-4"></i> github.com/alexdev
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener"
+                            class="flex items-center gap-3 text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i> linkedin.com/in/alexdev
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form id="contact-form" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-xs font-mono text-neutral-500 mb-1">NAME</label>
+                        <input type="text" id="name" required
+                            class="w-full px-4 py-2.5 text-sm rounded-lg border border-neutral-300 dark:border-neutral-800 bg-transparent focus:border-neutral-800 dark:focus:border-neutral-200 transition-colors"
+                            placeholder="Jane Doe">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-xs font-mono text-neutral-500 mb-1">EMAIL</label>
+                        <input type="email" id="email" required
+                            class="w-full px-4 py-2.5 text-sm rounded-lg border border-neutral-300 dark:border-neutral-800 bg-transparent focus:border-neutral-800 dark:focus:border-neutral-200 transition-colors"
+                            placeholder="jane@example.com">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-xs font-mono text-neutral-500 mb-1">MESSAGE</label>
+                        <textarea id="message" rows="4" required
+                            class="w-full px-4 py-2.5 text-sm rounded-lg border border-neutral-300 dark:border-neutral-800 bg-transparent focus:border-neutral-800 dark:focus:border-neutral-200 transition-colors"
+                            placeholder="Hi Alex, I'd like to talk about..."></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full py-3 rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors font-medium text-sm flex items-center justify-center gap-2">
+                        Send Message <i data-lucide="send" class="w-4 h-4"></i>
+                    </button>
+                    <!-- Form Status Message Box -->
+                    <div id="form-status" class="hidden p-3 rounded-lg text-xs font-mono text-center"></div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Project Preview Modal -->
+    <div id="project-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity">
+        <div
+            class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-xl relative animate-in fade-in zoom-in-95 duration-200">
+            <button onclick="closeProjectModal()"
+                class="absolute top-4 right-4 text-neutral-500 hover:text-neutral-900 dark:hover:text-white">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h3 id="modal-title" class="text-xl font-bold"></h3>
+            <div id="modal-tags" class="flex flex-wrap gap-2 text-xs font-mono text-neutral-500"></div>
+            <p id="modal-description" class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed"></p>
+            <div id="modal-highlights"
+                class="border-t border-neutral-100 dark:border-neutral-800 pt-3 text-xs text-neutral-500 space-y-1">
+            </div>
+            <div class="flex justify-end gap-3 pt-2">
+                <a id="modal-link" href="#" target="_blank"
+                    class="px-4 py-2 rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 text-xs font-mono flex items-center gap-1.5 hover:opacity-90 transition-opacity">
+                    View Repository <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer
+        class="w-full border-t border-neutral-200/60 dark:border-neutral-800/60 py-8 text-center text-xs text-neutral-500 font-mono">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>© 2026 Alex. All rights reserved.</p>
+            <p class="text-neutral-400">Designed with modern minimalism.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 1. Dark/Light Mode Switcher
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        // Detect preference or default to dark
+        if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            document.documentElement.classList.remove('dark');
+        } else {
+            document.documentElement.classList.add('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+
+        // 2. Interactive Project Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active styling from all buttons
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-neutral-900', 'text-white', 'dark:bg-neutral-100', 'dark:text-neutral-900', 'border-neutral-900', 'dark:border-neutral-100');
+                    b.classList.add('border-neutral-200', 'dark:border-neutral-800');
+                });
+
+                // Add active styling to clicked button
+                btn.classList.add('active', 'bg-neutral-900', 'text-white', 'dark:bg-neutral-100', 'dark:text-neutral-900', 'border-neutral-900', 'dark:border-neutral-100');
+                btn.classList.remove('border-neutral-200', 'dark:border-neutral-800');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // 3. Project Details Modal Data & Handlers
+        const projectData = [
+            {
+                title: "ResumeLens AI",
+                tags: ["Python", "FastAPI", "NLP", "PyTorch"],
+                description: "ResumeLens AI analyzes developer resumes against modern ATS filters using natural language processing and custom LLM embeddings. It highlights missing domain keywords, evaluates typography structure, and provides automated optimization advice.",
+                highlights: "• Processes PDF/Docx files in under 2 seconds\n• Integrated with local LLMs via Ollama & OpenAI API\n• 140+ GitHub stars with active community contributions",
+                link: "https://github.com"
+            },
+            {
+                title: "OilBank Platform Initiative",
+                tags: ["React", "Node.js", "PostgreSQL", "Tailwind"],
+                description: "OilBank is a circular economy startup solution providing industrial machinery operators with a verified marketplace to track, log, and trade recycled oils and lubricants.",
+                highlights: "• Real-time logistics dashboard & chain-of-custody logs\n• Multi-role permissions for suppliers, collectors, and refineries\n• Early pilot onboarded 5 local industrial partners",
+                link: "https://github.com"
+            },
+            {
+                title: "Dev Club CLI Suite & Linux Tools",
+                tags: ["Rust", "Bash", "Linux System API"],
+                description: "A developer utility CLI designed for Linux systems to streamline campus hackathons and club projects. Includes instant environment bootstrapping, git automation, and test runner shortcuts.",
+                highlights: "• Built using Rust for near-zero startup delay\n• Cross-distro support (Ubuntu, Arch, Fedora)\n• Adopted by 200+ active CS students",
+                link: "https://github.com"
+            }
+        ];
+
+        const modal = document.getElementById('project-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalTags = document.getElementById('modal-tags');
+        const modalDesc = document.getElementById('modal-description');
+        const modalHighlights = document.getElementById('modal-highlights');
+        const modalLink = document.getElementById('modal-link');
+
+        function openProjectModal(index) {
+            const data = projectData[index];
+            if (!data) return;
+
+            modalTitle.textContent = data.title;
+            modalTags.innerHTML = data.tags.map(t => `<span class="px-2 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800">${t}</span>`).join('');
+            modalDesc.textContent = data.description;
+            modalHighlights.innerHTML = data.highlights.split('\n').map(h => `<p>${h}</p>`).join('');
+            modalLink.href = data.link;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeProjectModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Close modal when clicking background overlay
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeProjectModal();
+        });
+
+        // 4. Scroll Reveal Animations (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // 5. Contact Form Micro-Interaction
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formStatus.classList.remove('hidden', 'bg-red-500/10', 'text-red-500');
+            formStatus.classList.add('bg-emerald-500/10', 'text-emerald-500');
+            formStatus.textContent = "Thank you! Your message has been sent successfully.";
+
+            contactForm.reset();
+            setTimeout(() => {
+                formStatus.classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+
+</html>
